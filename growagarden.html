@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>Yewgen fanpage</title>
+  <link rel="icon" type="image/x-icon" href="ikon.png">
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">      
+  </head>
+<body>
+<div class=center>
+  <img src="ikon.png" width=200>
+        <hr width="100%;" color="#38393f" size="3">
+      <h2><a href="wiersz">Wiersz</a>
+      <a href="gry">Fajne gry</a>
+       <a href="wideo">Fajne wideo</a>
+          <a href="audio">Fajne audio</a>
+    <hr width="100%;" color="#38393f" size="3">
+       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
+    </div>
+<script>
+fetch('https://growagardenapi.vercel.app/api/Item-Info')
+  .then(response => response.json())
+  .then(data => {
+    const mango = data.find(item => item.name.toLowerCase() === 'mango');
+
+    if (mango) {
+      if (mango.demand > 1) {
+        console.log('Mangos have a demand greater than 1.');
+      } else {
+        console.log('Mangos do not have a demand greater than 1.');
+      }
+    } else {
+      console.log('Mango item not found.');
+    }
+  })
+  .catch(error => console.error('Error fetching data:', error));
+
+</script>
